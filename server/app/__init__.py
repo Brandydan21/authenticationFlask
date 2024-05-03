@@ -18,14 +18,15 @@ def create_app():
     db.init_app(app)
 
         
-
     migrate.init_app(app, db)
     
     #this is looking for the models module within the app module
 
     from . import models
-    from .view import routes_bp
+    from .routes import view_routes_bp, auth_routes_bp
 
-    app.register_blueprint(routes_bp, url_prefix= '/user')
+    app.register_blueprint(view_routes_bp, url_prefix= '/user')
+    app.register_blueprint(auth_routes_bp, url_prefix= '/auth')
+
 
     return app
