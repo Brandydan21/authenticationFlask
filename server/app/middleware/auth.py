@@ -1,4 +1,4 @@
-from . import request, jsonify, current_app, jwt, wraps
+from ..extensions import request, jsonify, current_app, jwt, wraps
 
 def token_required(func):
     @wraps(func)
